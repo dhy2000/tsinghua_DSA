@@ -10,15 +10,13 @@ const int MAX_HEAPSIZE = 1000005;
 
 template <typename T>
 inline void swap(T *pa, T *pb) {T tmp = *pa; *pa = *pb; *pb = tmp;}
-// 维护大顶堆
+
 template <typename T>
 struct heap {
     T Ele[MAX_HEAPSIZE]; 
     int heapsize;
     heap() {heapsize = 0; memset(Ele, 0, sizeof(Ele));}
     void siftdown(int rt) {
-        // 维护大顶堆
-        // 左儿子和右儿子里找到比自己大并且最大的元素交换，如果没有交换则停止
         int exc = rt;
         if ((rt<<1) <= heapsize && Ele[exc] < Ele[(rt<<1)]) {
             exc = (rt<<1);
@@ -119,7 +117,5 @@ int main() {
         hp.pop();
         printf("%d %d\n", top.pid, (CLK += top.tproc));
     }
-
-
     return 0;
 }
